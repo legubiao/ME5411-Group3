@@ -31,11 +31,3 @@ for i = 3:365
 end
 
 
-
-
-
-
-%dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd¡¢
-
-
-
