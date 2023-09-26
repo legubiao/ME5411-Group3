@@ -24,7 +24,7 @@ for i = 3:365
             for l = 1:3
                 %calculate dispersion
                 % dispersion = (sum(img_3by3rotate(i,j,:)).^2 - sum(img_3by3rotate(i,j,:)).^2 / 9) / 9 ;
-                
+                % test push
             end
         end
     end
