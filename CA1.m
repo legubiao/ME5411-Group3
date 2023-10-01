@@ -15,20 +15,26 @@ imshow(img_3by3average); %display the 3x3 averaged image
 %There are not many differents.This one is a bit darker and blurry
 
 % apply 3x3 rotating mask on the original image
-img_3by3rotate = double(img_org);%initialize 3x3 rotating masked image
+img_3by3rotate = img_gray;%initialize 3x3 rotating masked image
 for i = 3:365
     for j = 3:988
         dispersion = 0;
         dispersion_min = 0;
-        for k = 1:3
-            for l = 1:3
+        for k = -1:1
+            for l = -1:1
                 %calculate dispersion
-                % dispersion = (sum(img_3by3rotate(i,j,:)).^2 - sum(img_3by3rotate(i,j,:)).^2 / 9) / 9 ;
-                % test push
+                dispersion = 1 / 9 * (img_gray(i,j) - mean(mean(img_gray(i+k-1:i+k+1,j+l-1:j+l+1)))) ^ 2;
+                if dispersion <= dispersion_min
+                    dispersion_min = dispersion;
+                    img_3by3rotate(i,j) = mean(mean(img_gray(i+k-1:i+k+1,j+l-1:j+l+1)));
+                end
             end
         end
     end
 end
+imshow(img_3by3rotate);
+%There are not many differents.This one is a bit clearer
+
 
 
 
